@@ -3,12 +3,12 @@ class StringUtils:
     Класс с полезными утилитами для обработки и анализа строк
     """
     
-    def capitilize(self, string: str) -> str:
+    def capitalize(self, string: str) -> str:
         """
         Принимает на вход текст, делает первую букву заглавной и возвращает этот же текст
-        Пример: `capitilize("skypro") -> "Skypro"`
+        Пример: `capitalize("skypro") -> "Skypro"`
         """
-        return string.capitilize()
+        return string.capitalize()
     
     def trim(self, string: str) -> str:
         """
@@ -84,7 +84,7 @@ class StringUtils:
         Пример 1: `end_with("SkyPro", "o") -> True`
         Пример 2: `end_with("SkyPro", "y") -> False`
         """
-        return string.endwith(symbol)
+        return string.endswith(symbol)
     
     def is_empty(self, string: str) -> bool:
         """
