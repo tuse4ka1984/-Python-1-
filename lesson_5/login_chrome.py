@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 # Инициализация браузера Chrome
 driver = webdriver.Chrome()
