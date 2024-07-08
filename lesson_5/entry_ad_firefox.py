@@ -1,5 +1,7 @@
 from selenium import webdriver
 
+from selenium.webdriver.common.by import By
+
 # Инициализация браузера Firefox
 driver = webdriver.Firefox()
 
