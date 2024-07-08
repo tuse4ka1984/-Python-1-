@@ -13,7 +13,7 @@ for _ in range(5):
     add_button.click()
 
 # Собрать список кнопок Delete и вывести их количество
-delete_buttons = driver.find_element(By.XPATH, "//button[text()='Add Element']")
+delete_buttons = driver.find_elements(By.XPATH, "//button[text()='Delete']")
 print(f"Количество кнопок Delete: {len(delete_buttons)}")
 
 # Закрыть браузер
