@@ -14,7 +14,7 @@ button = driver.find_element(By.ID, "ajaxButton")
 button.click()
 
 # Ожидание появления зеленой плашки и получение текста
-wait = WebDriverWait(driver, 10)
+wait = WebDriverWait(driver, 20)
 green_label = wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, ".bg-success")))
 print(green_label.text)
 
