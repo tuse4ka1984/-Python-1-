@@ -15,7 +15,7 @@ wait.until(EC.text_to_be_present_in_element((By.ID, "text"), "Done"))
 
 # Получение значения атрибута src у 3-й картинки
 third_image = driver.find_element(By.XPATH, "(//img)[3]")
-print(third_image.get_attribute("src"))
+print(third_image.get_attribute("award"))
 
 # Закрыть браузер
 driver.quit()
