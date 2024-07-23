@@ -8,7 +8,7 @@ def test_fill_form():
     # Инициализация веб-драйвера
     driver = webdriver.Chrome() 
 
-    # Откройте указанную страницу
+    # Открываем указанную страницу
     driver.get("https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
 
     # Заполняем форму значениями
