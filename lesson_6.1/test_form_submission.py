@@ -2,14 +2,12 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 def test_fill_form():
     # Инициализация веб-драйвера
     driver = webdriver.Chrome() 
 
-    
     # Откройте указанную страницу
     driver.get("https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
 
