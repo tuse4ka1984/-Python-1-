@@ -1,34 +1,31 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-# Инициализация веб-драйвера
-driver = webdriver.Chrome()
+def test_calculator():
+    # Инициализация веб-драйвера
+    driver = webdriver.Chrome()
 
-# Открываем страницу калькулятора
-driver.get("https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html")
+    # Откройте страницу калькулятора
+    driver.implicitly_wait(120)
+    driver.get("https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html")
+    
+    # Ввод значения в поле delay
+    delay_input = driver.find_element(By.CSS_SELECTOR, "#delay")
+    delay_input.clear()
+    delay_input.send_keys("45")
+    
+    # Нажимаем на кнопки калькулятора
+    driver.find_element(By.XPATH, "//span[text()='7']").click()
+    driver.find_element(By.XPATH, "//span[text()='+']").click()
+    driver.find_element(By.XPATH, "//span[text()='8']").click()
+    driver.find_element(By.XPATH, "//span[text()='=']").click()
 
-# Ввод значения в поле delay
-driver.find_element(By.CSS_SELECTOR, "#delay").send_keys("45")
+    # Ожидание результата
+    wait = WebDriverWait(driver, 60)
+    wait.until(EC.text_to_be_present_in_element((By.XPATH, "//div[@class='screen']"), "15"))
 
-# Нажимаем на кнопки калькулятора
-driver.find_element(By.XPATH, "//button[text()='7']").click()
-driver.find_element(By.XPATH, "//button[text()='+']").click()
-driver.find_element(By.XPATH, "//button[text()='8']").click()
-driver.find_element(By.XPATH, "//button[text()='=']").click()
-
-# Ждем 45 секунд для получения результата
-time.sleep(45)
-
-# Получаем результат из окна вывода
-result = driver.find_element(By.CSS_SELECTOR, "#output").text
-
-# Проверяем, что результат равен 15
-assert result == "15", f"Expected result to be 15, but got {result}"
-
-# Закрываем браузер
-driver.quit()
-
-if __name__ == "__main__":
-    pytest.main()
+    # Проверка результата
+    assert "15" in driver.find_element(By.XPATH, "//div[@class='screen']").text
