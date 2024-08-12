@@ -115,7 +115,7 @@ def test_edit_employee():
     employee = emp.get_employee(id_emp)
     
     assert employee["email"] == new_mail
-    assert employee["isActive"] == False
+    assert employee["isActive"] == new_active
 
     #Удаление созданной компании и сотрудников
     edited_company = emp.delete_company(new_id)
