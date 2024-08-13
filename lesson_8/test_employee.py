@@ -1,6 +1,6 @@
 import requests
-from lesson_8.pages_employee.Employee import Employee
-from lesson_8.pages_employee.Employee import Company
+from pages_employee.Employee import Employee
+from pages_employee.Company import Company
 
 emp = Employee("https://x-clients-be.onrender.com")
 com = Company("https://x-clients-be.onrender.com")
