@@ -21,18 +21,6 @@ class Employee:
     resp = requests.post(self.url + '/auth/login', json=creds)
     return resp.json()["userToken"]
 
-# Добавление компании:
- def create_company(self, name, description=""):
-     company = {
-    "name": name,
-    "description": description
-        }
-     my_headers = {}
-     my_headers["x-client-token"] = self.get_token()
-     resp = requests.post(self.url + '/company',
-     json=company, headers=my_headers)
-     return resp.json()
-
 # Добавление нового сотрудника
  def create_employee(self, f_Name, l_Name, id_com, phone, isActive):
         employee = {
@@ -58,7 +46,7 @@ class Employee:
         return resp.json()
  
 # Изменение информации о сотруднике
- def edit(self, new_id, new_mail, new_active):
+ def edit_employee(self, new_id, new_mail, new_active):
     my_headers = {}
     my_headers["x-client-token"] = self.get_token()
     employee = {
@@ -69,7 +57,22 @@ class Employee:
     str(new_id), headers=my_headers, json=employee)
     return resp.json()
  
- #Удаление компании и сотрудников
+ 
+class Company:
+     
+# Добавление компании:
+ def create_company(self, name, description=""):
+     company = {
+    "name": name,
+    "description": description
+        }
+     my_headers = {}
+     my_headers["x-client-token"] = self.get_token()
+     resp = requests.post(self.url + '/company',
+     json=company, headers=my_headers)
+     return resp.json()
+ 
+#Удаление компании и сотрудников
  def delete_company(self, id):
         my_headers = {}
         my_headers["x-client-token"] = self.get_token()
